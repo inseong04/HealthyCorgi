@@ -21,7 +21,6 @@ public class Setting_Time extends AppCompatActivity {
         setContentView(R.layout.activity_setting__time);
         TimePicker mTimePicker = findViewById(R.id.timepicker);
         Calendar mCalendar = Calendar.getInstance();
-        TextView go_dayofweek = findViewById(R.id.go_dayofweek);
 
         int hour,min;
 
@@ -33,13 +32,5 @@ public class Setting_Time extends AppCompatActivity {
             hour = mTimePicker.getCurrentHour();
             min = mTimePicker.getCurrentMinute();
         }
-
-        go_dayofweek.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Get_DayofWeek.class);
-                startActivity(intent);
-            }
-        });
     }
 }
