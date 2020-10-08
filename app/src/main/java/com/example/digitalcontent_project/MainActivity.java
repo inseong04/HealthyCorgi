@@ -7,14 +7,23 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
-
+    private String TAG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         final Fragment2 fragment2 = new Fragment2();
         final Fragment3 fragment3 = new Fragment3();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomview);
+        final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        final FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final String user_uid = user.getUid(); // 유저 고유 uid값.
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -47,6 +60,24 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        firestoreDB.collection("users").document(user_uid)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()){
+                            // 여기 고쳐야함
+                            DocumentSnapshot document = task.getResult();
+                            //String FirstAttempt = document.getData();
+                            Log.d(TAG,FirstAttempt);
+                        }
+                        else {
+                            Log.d(TAG, "No such document");
+                        }
+                    }
+                });
 
         testbtn.setOnClickListener(new View.OnClickListener() {
             @Override
