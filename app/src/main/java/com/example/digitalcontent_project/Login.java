@@ -29,6 +29,7 @@ public class Login extends AppCompatActivity {
         final Button login_signup = findViewById(R.id.login_signup);
         final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
+
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

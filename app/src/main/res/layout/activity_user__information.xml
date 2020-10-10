@@ -7,13 +7,17 @@
     tools:context=".User_Information">
     <EditText
         android:id="@+id/user_name"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="이름"
+        android:gravity="center"
         android:inputType="textPersonName"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.3"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
         />
     <EditText
         android:id="@+id/user_year"
@@ -23,16 +27,18 @@
         android:hint="년(4자)"
         android:inputType="number"
         app:layout_constraintTop_toBottomOf="@id/user_name"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/user_month"
+        android:layout_marginTop="50dp"
         />
     <Spinner
         android:id="@+id/user_month"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:entries="@array/month"
-
         app:layout_constraintTop_toBottomOf="@id/user_name"
-        app:layout_constraintLeft_toRightOf="@id/user_year"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="50dp"
         />
     <EditText
         android:id="@+id/user_day"
@@ -43,5 +49,6 @@
         android:inputType="number"
         app:layout_constraintTop_toBottomOf="@id/user_name"
         app:layout_constraintLeft_toRightOf="@id/user_month"
+        android:layout_marginTop="50dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
