@@ -21,6 +21,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG;
@@ -69,9 +70,19 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()){
                             // 여기 고쳐야함
+                            final String firstattempt;
                             DocumentSnapshot document = task.getResult();
-                            //String FirstAttempt = document.getData();
-                            Log.d(TAG,FirstAttempt);
+                            Map<String,Object> map = new HashMap<>();
+                            Log.e(TAG,"document : " + document.getData());
+                            map = document.getData();
+
+                            Log.e(TAG,"firstattept : " + document.getData());
+
+                            if (map.get("First Attempt") != null) {
+                                Log.e(TAG, "map : " + document.get("First Attempt")); // 정보 받아오는 부분. First Attempt부분에 필드 입력하면 됨.
+                           /*DocumentSnapshot document = task.getResult();
+                           firstattempt = document.getData();*/
+                            }
                         }
                         else {
                             Log.d(TAG, "No such document");
