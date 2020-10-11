@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         firestoreDB.collection("users").document(user_uid)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -80,8 +82,12 @@ public class MainActivity extends AppCompatActivity {
 
                             if (map.get("First Attempt") != null) {
                                 Log.e(TAG, "map : " + document.get("First Attempt")); // 정보 받아오는 부분. First Attempt부분에 필드 입력하면 됨.
-                           /*DocumentSnapshot document = task.getResult();
-                           firstattempt = document.getData();*/
+                                if(document.get("First Attempt") == 0){
+                                    Intent intent = new Intent(getApplicationContext(),User_Information.class);
+                                    startActivity(intent);
+                                }
+
+
                             }
                         }
                         else {
@@ -99,3 +105,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+

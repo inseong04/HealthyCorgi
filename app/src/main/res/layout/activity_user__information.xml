@@ -5,6 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".User_Information">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        />
     <EditText
         android:id="@+id/user_name"
         android:layout_width="300dp"
@@ -14,7 +19,7 @@
         android:inputType="textPersonName"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.15"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
@@ -28,7 +33,7 @@
         android:inputType="number"
         app:layout_constraintTop_toBottomOf="@id/user_name"
         app:layout_constraintRight_toLeftOf="@id/user_month"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         />
     <Spinner
         android:id="@+id/user_month"
@@ -38,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@id/user_name"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         />
     <EditText
         android:id="@+id/user_day"
@@ -49,6 +54,72 @@
         android:inputType="number"
         app:layout_constraintTop_toBottomOf="@id/user_name"
         app:layout_constraintLeft_toRightOf="@id/user_month"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         />
+    <EditText
+        android:id="@+id/user_disease"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/user_day"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="의학적 질환을 입력해주세요"
+        />
+    <EditText
+        android:id="@+id/user_record"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/user_disease"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="의료 기록을 입력해주세요"
+        />
+    <EditText
+        android:id="@+id/user_allergy"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/user_record"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="알레르기 및 약물 부작용을 입력해주세요"
+        />
+
+    <EditText
+        android:id="@+id/user_blood"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/user_allergy"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="혈액형을 입력해주세요"
+        />
+    <EditText
+        android:id="@+id/user_height"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/user_blood"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="키를 입력해주세요"
+        />
+    <EditText
+        android:id="@+id/user_weight"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/user_height"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="몸무게를 입력해주세요"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
