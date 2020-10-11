@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -33,8 +35,6 @@ public class Signup extends AppCompatActivity {
 
         final EditText signup_edittext_user_id = findViewById(R.id.signup_edittext_user_id);
         final EditText signup_edittext_user_password = findViewById(R.id.signup_edittext_user_password);
-        final EditText signup_eddittext_user_password_check = findViewById(R.id.signup_edittext_user_password_check);
-        final TextView pwd_error = findViewById(R.id.pwd_error);
         Button signup_button = findViewById(R.id.signup_button);
         final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance(); // firebaseAuth의 인스턴스를 가져온다.
         final FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
@@ -46,10 +46,8 @@ public class Signup extends AppCompatActivity {
             public void onClick(View view) {
                 String email = signup_edittext_user_id.getText().toString().trim();
                 String pwd = signup_edittext_user_password.getText().toString().trim();
-                String pwd_check = signup_eddittext_user_password_check.getText().toString().trim();
 
-                if (pwd == pwd_check) {
-                // 비밀번호와 비밀번호 확인이 같은지 체크
+
                     firebaseAuth.createUserWithEmailAndPassword(email, pwd)
                             .addOnCompleteListener(Signup.this, new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -85,12 +83,7 @@ public class Signup extends AppCompatActivity {
                                     }
                                 }
                             });
-                }
 
-                else {
-                // 틀릴경우
-                pwd_error.setVisibility(View.VISIBLE);
-                }
             }
         });
         }

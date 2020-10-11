@@ -13,5 +13,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         />
+    <Button
+        android:id="@+id/go_user_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="go_user_information"
+        app:layout_constraintTop_toBottomOf="@id/go_setting_time"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

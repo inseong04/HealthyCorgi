@@ -5,11 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".User_Information">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        />
     <EditText
         android:id="@+id/user_name"
         android:layout_width="300dp"
@@ -121,5 +117,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:hint="몸무게를 입력해주세요"
         />
-
+    <Button
+        android:id="@+id/save_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="확인"
+         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

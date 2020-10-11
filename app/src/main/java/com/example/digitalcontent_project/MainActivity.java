@@ -82,10 +82,10 @@ public class MainActivity extends AppCompatActivity {
 
                             if (map.get("First Attempt") != null) {
                                 Log.e(TAG, "map : " + document.get("First Attempt")); // 정보 받아오는 부분. First Attempt부분에 필드 입력하면 됨.
-                                if(document.get("First Attempt") == 0){
+/*                                if(document.get("First Attempt") == 0){
                                     Intent intent = new Intent(getApplicationContext(),User_Information.class);
                                     startActivity(intent);
-                                }
+                                }*/
 
 
                             }
