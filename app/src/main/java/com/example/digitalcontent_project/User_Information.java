@@ -52,7 +52,7 @@ public class User_Information extends AppCompatActivity {
         final String weight = user_weight.getText().toString().trim();
         final String month = user_month.getSelectedItem().toString();
         //Edittext에서 받아와지지 않음
-
+        ///
         save_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
