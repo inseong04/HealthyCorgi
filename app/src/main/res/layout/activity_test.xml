@@ -21,5 +21,13 @@
         app:layout_constraintTop_toBottomOf="@id/go_setting_time"
         app:layout_constraintLeft_toLeftOf="parent"
         />
+    <Button
+        android:id="@+id/push"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PushNotification"
+        app:layout_constraintTop_toBottomOf="@id/go_user_information"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

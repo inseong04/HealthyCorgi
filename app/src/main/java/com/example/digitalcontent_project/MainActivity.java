@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()){
-                            // 여기 고쳐야함
                             final String firstattempt;
                             DocumentSnapshot document = task.getResult();
                             Map<String,Object> map = new HashMap<>();
@@ -82,11 +81,6 @@ public class MainActivity extends AppCompatActivity {
 
                             if (map.get("First Attempt") != null) {
                                 Log.e(TAG, "map : " + document.get("First Attempt")); // 정보 받아오는 부분. First Attempt부분에 필드 입력하면 됨.
-/*                                if(document.get("First Attempt") == 0){
-                                    Intent intent = new Intent(getApplicationContext(),User_Information.class);
-                                    startActivity(intent);
-                                }*/
-
 
                             }
                         }
