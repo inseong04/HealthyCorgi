@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         final Fragment1 fragment1 = new Fragment1();
         final Fragment2 fragment2 = new Fragment2();
         final Fragment3 fragment3 = new Fragment3();
+        final Fragment4 fragment4 = new Fragment4();
+        final Fragment5 fragment5 = new Fragment5();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomview);
         final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         final FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
@@ -55,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                     case R.id.menu3 : {
                         transaction.replace(R.id.framelayout,fragment3).commitAllowingStateLoss();
+                        break;
+                    }
+                    case R.id.menu4 : {
+                        transaction.replace(R.id.framelayout,fragment4).commitAllowingStateLoss();
+                        break;
+                    }
+                    case R.id.menu5 : {
+                        transaction.replace(R.id.framelayout,fragment5).commitAllowingStateLoss();
                         break;
                     }
                 }
@@ -81,7 +91,8 @@ public class MainActivity extends AppCompatActivity {
 
                             if (map.get("First Attempt") != null) {
                                 Log.e(TAG, "map : " + document.get("First Attempt")); // 정보 받아오는 부분. First Attempt부분에 필드 입력하면 됨.
-
+                                String first_attempt = (String) document.get("First Attempt"); // Object를 String으로 강제형변환.
+                                Log.e(TAG,"first_attempt String = " + first_attempt);
                             }
                         }
                         else {

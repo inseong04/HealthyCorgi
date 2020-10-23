@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -48,7 +50,8 @@ public class Login extends AppCompatActivity {
                                 }
                                 else {
                                     login_error_text.setVisibility(View.VISIBLE);
-
+                                    Animation shake = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake);
+                                    login_error_text.startAnimation(shake);
                                 }
                             }
                         });

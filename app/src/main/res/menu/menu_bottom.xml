@@ -16,4 +16,14 @@
         android:icon="@drawable/ic_android_black_24dp"
         android:title="menu3"
         />
+    <item
+        android:id="@+id/menu4"
+        android:icon="@drawable/ic_android_black_24dp"
+        android:title="menu4"
+        />
+    <item
+        android:id="@+id/menu5"
+        android:icon="@drawable/ic_android_black_24dp"
+        android:title="menu5"
+        />
 </menu>
