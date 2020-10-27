@@ -4,11 +4,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment3">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="fragment3" />
+        tools:context=".MainActivity">
 
+        <TextView
+            android:id="@+id/smalltitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="오늘도 아침,점심,저녁 챙겨드세요!!"
+            android:gravity="center"
+            tools:ignore="MissingConstraints"
+            />
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="복용중인 약 목록"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:id="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/smalltitle"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medicine list"
+            android:id="@+id/mdtitle"
+            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler1"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toBottomOf="@id/mdtitle"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
