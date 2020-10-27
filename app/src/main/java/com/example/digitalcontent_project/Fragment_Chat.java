@@ -26,7 +26,7 @@ public class Fragment_Chat extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final EditText user_input = getView().findViewById(R.id.user_input);
+/*        final EditText user_input = getView().findViewById(R.id.user_input);
         Button send_btn = getView().findViewById(R.id.send_btn);
 
         send_btn.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +40,7 @@ public class Fragment_Chat extends Fragment {
                 myRef.setValue(user_input_string); // RealtimeDatabase에 작성
 
             }
-        });
+        });*/
     }
 
     @Override
