@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Button testbtn = findViewById(R.id.testbtn);
         final FragmentManager fragmentmanager = getSupportFragmentManager();
         final Fragment1 fragment1 = new Fragment1();
-        final Fragment2 fragment2 = new Fragment2();
+        final Fragment_Chat fragmentChat = new Fragment_Chat();
         final Fragment3 fragment3 = new Fragment3();
         final Fragment4 fragment4 = new Fragment4();
         final Fragment5 fragment5 = new Fragment5();
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case R.id.menu2 : {
-                        transaction.replace(R.id.framelayout,fragment2).commitAllowingStateLoss();
+                        transaction.replace(R.id.framelayout, fragmentChat).commitAllowingStateLoss();
                         break;
                     }
                     case R.id.menu3 : {
