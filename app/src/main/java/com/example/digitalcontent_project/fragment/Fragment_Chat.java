@@ -1,4 +1,4 @@
-package com.example.digitalcontent_project;
+package com.example.digitalcontent_project.fragment;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.digitalcontent_project.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

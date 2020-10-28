@@ -1,4 +1,4 @@
-package com.example.digitalcontent_project;
+package com.example.digitalcontent_project.Login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.digitalcontent_project.Main.MainActivity;
+import com.example.digitalcontent_project.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -44,7 +46,7 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 // 이메일주소와 비밀번호를 signInWithEmailAndPassword에서 가져온다.
                                 if (task.isSuccessful()) { // 이메일주소와 비밀번호가 맞다면 MainActivity로 넘어간다.
-                                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }
@@ -60,7 +62,7 @@ public class Login extends AppCompatActivity {
         login_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Signup.class);
+                Intent intent = new Intent(getApplicationContext(), Signup.class);
                 startActivity(intent);
             }
         });

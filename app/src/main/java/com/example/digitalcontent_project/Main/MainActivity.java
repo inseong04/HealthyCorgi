@@ -1,4 +1,4 @@
-package com.example.digitalcontent_project;
+package com.example.digitalcontent_project.Main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,15 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.digitalcontent_project.fragment.Fragment1;
+import com.example.digitalcontent_project.fragment.Fragment_Chat;
+import com.example.digitalcontent_project.fragment.Fragment3;
+import com.example.digitalcontent_project.fragment.Fragment4;
+import com.example.digitalcontent_project.fragment.Fragment5;
+import com.example.digitalcontent_project.R;
+import com.example.digitalcontent_project.Test;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -41,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         final FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final String user_uid = user.getUid(); // 유저 고유 uid값.
-
+        final TextView asdf = findViewById(R.id.asdf);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -90,9 +98,11 @@ public class MainActivity extends AppCompatActivity {
                             Log.e(TAG,"firstattept : " + document.getData());
 
                             if (map.get("First Attempt") != null) {
+                                String first_attempt = document.get("First Attempt").toString();
+                                asdf.setText(first_attempt);
                                 Log.e(TAG, "map : " + document.get("First Attempt")); // 정보 받아오는 부분. First Attempt부분에 필드 입력하면 됨.
-                                String first_attempt = (String) document.get("First Attempt"); // Object를 String으로 강제형변환.
-                                Log.e(TAG,"first_attempt String = " + first_attempt);
+                                 // Object를 String으로 강제형변환.
+
                             }
                         }
                         else {
@@ -104,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         testbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Test.class);
+                Intent intent = new Intent(getApplicationContext(), Test.class);
                 startActivity(intent);
             }
         });

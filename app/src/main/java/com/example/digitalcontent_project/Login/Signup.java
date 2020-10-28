@@ -1,19 +1,16 @@
-package com.example.digitalcontent_project;
+package com.example.digitalcontent_project.Login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.digitalcontent_project.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -57,7 +54,7 @@ public class Signup extends AppCompatActivity {
                                     if (task.isSuccessful()) { // 성공적일경우 로그인화면으로 넘어간다.
                                         String user_uid = user.getUid();
                                         Map<String, Object> user_information = new HashMap<>();
-                                        user_information.put("First Attempt", 0);
+                                        user_information.put("First Attempt", "First");
 
                                         firestoreDB.collection("users").document(user_uid)
                                                 .set(user_information)

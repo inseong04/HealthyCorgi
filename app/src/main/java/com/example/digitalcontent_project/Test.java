@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.digitalcontent_project.Main.MainActivity;
+
 public class Test extends AppCompatActivity {
 
     @Override
@@ -22,7 +24,7 @@ public class Test extends AppCompatActivity {
         Button pushnotification = findViewById(R.id.push);
 
         PendingIntent mPendingintent = PendingIntent.getActivity(Test.this,0,
-                new Intent(getApplicationContext(),MainActivity.class)
+                new Intent(getApplicationContext(), MainActivity.class)
                 ,PendingIntent.FLAG_UPDATE_CURRENT);
 
         final   NotificationCompat.Builder mBuilder =
