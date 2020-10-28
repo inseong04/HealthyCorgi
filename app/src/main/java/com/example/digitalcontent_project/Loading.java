@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.digitalcontent_project.Login.Login;
+import com.example.digitalcontent_project.login.Login;
 
 public class Loading extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.digitalcontent_project.Login;
+package com.example.digitalcontent_project.login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,7 +51,7 @@ public class Signup extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 
 // 이메일주소와 비밀번호를 creatUserWithEmailAndPassword에 전달하여 신규 계정을 생성한다.
-                                    if (task.isSuccessful()) { // 성공적일경우 로그인화면으로 넘어간다.
+                                    if (task.isSuccessful()) { // 성공일경우 로그인화면으로 넘어간다.
                                         String user_uid = user.getUid();
                                         Map<String, Object> user_information = new HashMap<>();
                                         user_information.put("First Attempt", "First");

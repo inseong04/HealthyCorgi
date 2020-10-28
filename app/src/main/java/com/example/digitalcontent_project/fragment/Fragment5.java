@@ -1,9 +1,13 @@
 package com.example.digitalcontent_project.fragment;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +26,8 @@ import java.util.List;
 
 public class Fragment5 extends Fragment {
 
+
+    private String TAG;
     private ListView listView;
     private FirebaseAuth mAuth ;
     TextView withdrawal;
@@ -53,6 +59,7 @@ public class Fragment5 extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 signOut();
             }
         });
@@ -60,6 +67,23 @@ public class Fragment5 extends Fragment {
         withdrawal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("회원탈퇴");
+                builder.setMessage("정말 탈퇴하시겠습니까?");
+                builder.setPositiveButton("예",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                revokeAccess();
+                            }
+                        });
+                builder.setNegativeButton("아니오",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Log.e(TAG,"user choose negativebutton");
+                            }
+                        });
                 revokeAccess();
             }
         });

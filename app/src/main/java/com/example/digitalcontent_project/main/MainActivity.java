@@ -1,4 +1,4 @@
-package com.example.digitalcontent_project.Main;
+package com.example.digitalcontent_project.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
