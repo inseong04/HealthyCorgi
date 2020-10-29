@@ -1,4 +1,4 @@
-package com.example.digitalcontent_project.Login;
+package com.example.digitalcontent_project.login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.digitalcontent_project.Main.MainActivity;
+import com.example.digitalcontent_project.main.MainActivity;
 import com.example.digitalcontent_project.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
         login_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Signup.class);
+                Intent intent = new Intent(getApplicationContext(), Id.class);
                 startActivity(intent);
             }
         });

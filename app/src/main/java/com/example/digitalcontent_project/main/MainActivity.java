@@ -1,4 +1,4 @@
-package com.example.digitalcontent_project.Main;
+package com.example.digitalcontent_project.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.digitalcontent_project.User_Information;
 import com.example.digitalcontent_project.fragment.Fragment1;
 import com.example.digitalcontent_project.fragment.Fragment_Chat;
 import com.example.digitalcontent_project.fragment.Fragment3;
@@ -99,9 +100,11 @@ public class MainActivity extends AppCompatActivity {
 
                             if (map.get("First Attempt") != null) {
                                 String first_attempt = document.get("First Attempt").toString();
-                                asdf.setText(first_attempt);
-                                Log.e(TAG, "map : " + document.get("First Attempt")); // 정보 받아오는 부분. First Attempt부분에 필드 입력하면 됨.
-                                 // Object를 String으로 강제형변환.
+                                Log.e(TAG,"aaaaa"+first_attempt);
+                                if(first_attempt.equals("First")){
+                                    Intent intent = new Intent(getApplication(), User_Information.class);
+                                    startActivity(intent);
+                                }
 
                             }
                         }

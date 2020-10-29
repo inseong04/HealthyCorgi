@@ -4,36 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.MainActivity">
+    tools:context=".login.Id">
 
-    <Button
-        android:id="@+id/testbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="test"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
     <TextView
-        android:id="@+id/asdf"
-        android:layout_width="wrap_content"
+        android:id="@+id/id_tv"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test"
+        android:text="이메일을 입력해주세요"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="80dp"
+        />
+    <EditText
+        android:id="@+id/edit_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="asdf@naver.com"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/id_tv"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="40dp"
         />
-    <FrameLayout
-        android:id="@+id/framelayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="?attr/actionBarSize"
-        />
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomview"
+    <Button
+        android:id="@+id/id_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="다음"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottom"
+        android:layout_marginBottom="10dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
