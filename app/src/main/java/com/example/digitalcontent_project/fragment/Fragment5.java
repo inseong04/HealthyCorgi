@@ -59,7 +59,6 @@ public class Fragment5 extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 signOut();
             }
         });
