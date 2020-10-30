@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.example.digitalcontent_project.User_Information;
 import com.example.digitalcontent_project.fragment.Fragment1;
-import com.example.digitalcontent_project.fragment.Fragment_Chat;
+import com.example.digitalcontent_project.chat.Fragment_Chat;
 import com.example.digitalcontent_project.fragment.Fragment3;
 import com.example.digitalcontent_project.fragment.Fragment4;
 import com.example.digitalcontent_project.fragment.Fragment5;

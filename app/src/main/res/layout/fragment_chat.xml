@@ -4,43 +4,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.Fragment_Chat">
+    tools:context=".chat.Fragment_Chat">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/medicine_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="테스트1"
-        android:textSize="20dp"
-        android:background="#D2E2E1"
-        android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@id/send_btn"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        />
-
-    <EditText
-        android:id="@+id/user_input"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="11.5"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chat_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.1"
+            android:background="#d6d6d6"
+            >
+            <TextView
+                android:id="@+id/medicine_check"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="테스트1"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="#D2E2E1"
+                android:padding="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                />
+        </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="10dp"
-        />
-    <Button
-        android:id="@+id/send_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:text="전송"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="10dp"
-        />
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1.4"
+        android:weightSum="10"
+        >
+        <EditText
+            android:id="@+id/user_input"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:textSize="25dp"
+            android:layout_marginBottom="10dp"
+            />
+        <Button
+            android:id="@+id/send_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="전송"
+            android:layout_marginBottom="10dp"
+            />
+        </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </FrameLayout>
