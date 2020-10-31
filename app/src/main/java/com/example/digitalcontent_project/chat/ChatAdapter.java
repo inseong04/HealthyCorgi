@@ -14,11 +14,12 @@ import java.util.ArrayList;
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.CustomViewHolder> {
 
     private ArrayList<ChatData> arrayList;
+    private String myname;
 
 
-
-    public ChatAdapter(ArrayList<ChatData> arrayList) {
+    public ChatAdapter(ArrayList<ChatData> arrayList,String ismine) {
         this.arrayList = arrayList;
+        this.myname = ismine;
     }
 
 
@@ -33,8 +34,12 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.CustomViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ChatAdapter.CustomViewHolder holder, int position) {
-        holder.chat_input.setText(arrayList.get(position).getMessage());
-        holder.chat_image.setImageResource(arrayList.get(position).getChat_image());
+        ChatData chat = arrayList.get(position);
+
+        holder.chat_input.setText(arrayList.get(position).getUser_input());
+
+
+
 
     }
 
@@ -45,12 +50,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.CustomViewHold
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
 
-        protected ImageView chat_image;
         protected TextView chat_input;
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.chat_image = (ImageView) itemView.findViewById(R.id.chat_image);
             this.chat_input = (TextView) itemView.findViewById(R.id.chat_input);
         }
+    }
+
+    public void addchat(ChatData chat){
+        arrayList.add(chat);
+        notifyItemInserted(arrayList.size()-1);
     }
 }

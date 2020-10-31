@@ -1,28 +1,18 @@
 package com.example.digitalcontent_project.chat;
 
 public class ChatData {
-    private int chat_image;
-    private String message;
 
-    public int getChat_image() {
-        return chat_image;
-    }
+    private String user_input;
 
-    public void setChat_image(int chat_image) {
-        this.chat_image = chat_image;
+    public String getUser_input() {
+        return user_input;
     }
 
-    public ChatData(int chat_image) {
-        this.chat_image = chat_image;
+    public void setUser_input(String user_input) {
+        this.user_input = user_input;
     }
 
-    public String getMessage() {
-        return message;
-    }
-    public void setMessage(String message) {
-        this.message = message;
-    }
-    public ChatData(String message) {
-        this.message = message;
+    public ChatData(String user_input) {
+        this.user_input = user_input;
     }
 }
