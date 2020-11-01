@@ -74,7 +74,7 @@ public class Fragment_Chat extends Fragment {
                 chat_input.setText("");
             }
         });
-        return inflater.inflate(R.layout.fragment_chat, container, false);
+        return view;
     }
 
 }

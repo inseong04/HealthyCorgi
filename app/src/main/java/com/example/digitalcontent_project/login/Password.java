@@ -55,7 +55,12 @@ public class Password extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                if(password.length() <= 6){
+                    password_error.setVisibility(View.VISIBLE); // 6자 이상 입력해주세요.
+                }
+                else if(password.length() > 6){
+                    password_error.setVisibility(View.GONE);
+                }
             }
 
             @Override
@@ -63,7 +68,7 @@ public class Password extends AppCompatActivity {
                 if(password.length() <= 6){
                     password_error.setVisibility(View.VISIBLE); // 6자 이상 입력해주세요.
                 }
-                else{
+                else if(password.length() > 6){
                     password_error.setVisibility(View.GONE);
                 }
             }
@@ -78,6 +83,14 @@ public class Password extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 // 입력중
+                String repassword = input_repassword.getText().toString();
+                if (password.equals(repassword)){
+                    password_btn.setEnabled(true); // 버튼 활성화
+                    password_disagree.setVisibility(View.GONE);
+                }
+                else{
+                    password_disagree.setVisibility(View.VISIBLE); // 비밀번호가 일치하지않습니다.
+                }
             }
 
             @Override
@@ -86,6 +99,7 @@ public class Password extends AppCompatActivity {
                 String repassword = input_repassword.getText().toString();
                 if (password.equals(repassword)){
                     password_btn.setEnabled(true); // 버튼 활성화
+                    password_disagree.setVisibility(View.GONE);
                 }
                 else{
                     password_disagree.setVisibility(View.VISIBLE); // 비밀번호가 일치하지않습니다.

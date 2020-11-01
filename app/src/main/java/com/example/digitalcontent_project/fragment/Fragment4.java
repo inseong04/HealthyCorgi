@@ -8,13 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.digitalcontent_project.MyAdapter;
 import com.example.digitalcontent_project.R;
 
 
 public class Fragment4 extends Fragment {
 
-    private MyAdapter adapter = new MyAdapter();
 
     public Fragment4() {
         // Required empty public constructor

@@ -5,32 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.example.digitalcontent_project.User_Information;
 import com.example.digitalcontent_project.fragment.Fragment1;
 import com.example.digitalcontent_project.chat.Fragment_Chat;
 import com.example.digitalcontent_project.fragment.Fragment3;
 import com.example.digitalcontent_project.fragment.Fragment4;
 import com.example.digitalcontent_project.fragment.Fragment5;
 import com.example.digitalcontent_project.R;
-import com.example.digitalcontent_project.Test;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG;
@@ -38,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button testbtn = findViewById(R.id.testbtn);
         final FragmentManager fragmentmanager = getSupportFragmentManager();
         final Fragment1 fragment1 = new Fragment1();
         final Fragment_Chat fragmentChat = new Fragment_Chat();
@@ -46,11 +29,10 @@ public class MainActivity extends AppCompatActivity {
         final Fragment4 fragment4 = new Fragment4();
         final Fragment5 fragment5 = new Fragment5();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomview);
-        final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+/*        final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         final FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        final String user_uid = user.getUid(); // 유저 고유 uid값.
-        final TextView asdf = findViewById(R.id.asdf);
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();*/
+/*        final String user_uid = user.getUid(); // 유저 고유 uid값.*/
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -82,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
+/*
         firestoreDB.collection("users").document(user_uid)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -109,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                         else {
-                            Log.d(TAG, "No such document");
+                            Log.e(TAG, "No such document");
                         }
                     }
                 });
@@ -120,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), Test.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }
 
