@@ -15,7 +15,7 @@
             android:src="@mipmap/ic_launcher"
             />
         <TextView
-            android:id="@+id/chat_input"
+            android:id="@+id/chat_message"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="채팅내용"

@@ -1,64 +1,53 @@
 package com.example.digitalcontent_project.chat;
 
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.digitalcontent_project.R;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
-public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.CustomViewHolder> {
-
+public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
+    @NonNull
     private ArrayList<ChatData> arrayList;
-    private String myname;
 
-
-    public ChatAdapter(ArrayList<ChatData> arrayList,String ismine) {
+    public ChatAdapter(@NonNull ArrayList<ChatData> arrayList) {
         this.arrayList = arrayList;
-        this.myname = ismine;
     }
 
-
-    @NonNull
-    @Override
-    public ChatAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ChatAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,parent,false);
-        CustomViewHolder holder = new CustomViewHolder(view);
+        ViewHolder holder = new ViewHolder(view);
 
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChatAdapter.CustomViewHolder holder, int position) {
-        ChatData chat = arrayList.get(position);
+    public void onBindViewHolder(@NonNull ChatAdapter.ViewHolder holder, int position) {
+        ChatData chat_Data = arrayList.get(position);
+        holder.chat_message.setText(arrayList.get(position).getUser_message());
 
-        holder.chat_input.setText(arrayList.get(position).getUser_input());
-
-
-
-
+        holder.itemView.setTag(position);
     }
+
 
     @Override
     public int getItemCount() {
-        return (null != arrayList ? arrayList.size() : 0);
+        return arrayList.size();
     }
 
-    public class CustomViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        protected TextView chat_input;
-        public CustomViewHolder(@NonNull View itemView) {
+        protected TextView chat_message;
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.chat_input = (TextView) itemView.findViewById(R.id.chat_input);
+            this.chat_message = (TextView) itemView.findViewById(R.id.chat_message);
         }
-    }
-
-    public void addchat(ChatData chat){
-        arrayList.add(chat);
-        notifyItemInserted(arrayList.size()-1);
     }
 }
