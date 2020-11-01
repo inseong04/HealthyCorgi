@@ -32,7 +32,10 @@ public class Fragment_Chat extends Fragment {
 
     private String TAG;
     private ArrayList<ChatData> arrayList;
-
+    ChatAdapter adapter;
+    EditText chat_input;
+    RecyclerView recyclerView;
+    Button send_btn;
     public Fragment_Chat() {
         // Required empty public constructor
     }
@@ -44,45 +47,34 @@ public class Fragment_Chat extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-/*        final EditText user_input = getView().findViewById(R.id.user_input);
-        Button send_btn = getView().findViewById(R.id.send_btn);
-
-        send_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String user_input_string = user_input.getText().toString().trim();
-
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("message");
-
-                myRef.setValue(user_input_string); // RealtimeDatabase에 작성
-
-            }
-        });*/
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
-        final EditText chat_input = view.findViewById(R.id.chat_input);
-        RecyclerView recyclerView = view.findViewById(R.id.chat_recyclerview);
+        chat_input = view.findViewById(R.id.chat_input);
+        recyclerView = view.findViewById(R.id.chat_recyclerview);
+        send_btn = view.findViewById(R.id.send_btn);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        arrayList = new ArrayList<>();
         recyclerView.setLayoutManager(layoutManager);
-        Button send_btn = view.findViewById(R.id.send_btn);
-        final ChatAdapter adapter = new ChatAdapter(arrayList);
+
+        arrayList = new ArrayList<>();
+        adapter = new ChatAdapter(arrayList);
         recyclerView.setAdapter(adapter);
+
         send_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message = chat_input.getText().toString().trim();
+                String message = chat_input.getText().toString();
                 Log.e(TAG,message);
                 ChatData chatData = new ChatData(message);
                 arrayList.add(chatData);
                 adapter.notifyDataSetChanged();
+                chat_input.setText("");
             }
         });
         return inflater.inflate(R.layout.fragment_chat, container, false);
     }
+
 }

@@ -33,14 +33,16 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         ChatData chat_Data = arrayList.get(position);
         holder.chat_message.setText(arrayList.get(position).getUser_message());
 
-        holder.itemView.setTag(position);
+       // holder.itemView.setTag(position);
     }
 
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
+        return (null != arrayList ? arrayList.size() : 0);
     }
+
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
