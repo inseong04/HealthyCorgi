@@ -26,15 +26,15 @@ public class User_Information extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user__information);
 
-        EditText user_name = findViewById(R.id.user_name);
-        EditText user_year = findViewById(R.id.user_year);
-        EditText user_day = findViewById(R.id.user_day);
-        EditText user_disease = findViewById(R.id.user_disease);
-        EditText user_record = findViewById(R.id.user_record);
-        EditText user_allergy = findViewById(R.id.user_allergy);
-        EditText user_blood = findViewById(R.id.user_blood);
-        EditText user_height = findViewById(R.id.user_height);
-        EditText user_weight = findViewById(R.id.user_weight);
+        final EditText user_name = findViewById(R.id.user_name);
+        final EditText user_year = findViewById(R.id.user_year);
+        final EditText user_day = findViewById(R.id.user_day);
+        final EditText user_disease = findViewById(R.id.user_disease);
+        final EditText user_record = findViewById(R.id.user_record);
+        final EditText user_allergy = findViewById(R.id.user_allergy);
+        final EditText user_blood = findViewById(R.id.user_blood);
+        final EditText user_height = findViewById(R.id.user_height);
+        final EditText user_weight = findViewById(R.id.user_weight);
         Spinner user_month = findViewById(R.id.user_month);
         Button save_date = findViewById(R.id.save_date);
         final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance(); // firebaseAuth의 인스턴스를 가져온다.
@@ -53,6 +53,7 @@ public class User_Information extends AppCompatActivity {
         final String month = user_month.getSelectedItem().toString();
         //Edittext에서 받아와지지 않음
         ///
+        //윤수: EditText 앞에 final 붙여봄
         save_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
