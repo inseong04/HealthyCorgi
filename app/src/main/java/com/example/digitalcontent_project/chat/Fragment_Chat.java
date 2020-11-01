@@ -67,14 +67,13 @@ public class Fragment_Chat extends Fragment {
             @Override
             public void onClick(View view) {
                 String message = chat_input.getText().toString();
-                Log.e(TAG,message);
+                Log.e(TAG,"awegwegawgwdafsgwaegewg");
                 ChatData chatData = new ChatData(message);
                 arrayList.add(chatData);
                 adapter.notifyDataSetChanged();
                 chat_input.setText("");
             }
         });
-        return inflater.inflate(R.layout.fragment_chat, container, false);
+        return view;
     }
-
 }
