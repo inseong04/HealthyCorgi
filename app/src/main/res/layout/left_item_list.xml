@@ -16,8 +16,6 @@
             android:layout_height="match_parent"
             android:text="채팅내용"
             android:textSize="20dp"
-            android:textColor="#407294"
-            android:gravity="right"
             android:padding="10dp"
             />
     </LinearLayout>

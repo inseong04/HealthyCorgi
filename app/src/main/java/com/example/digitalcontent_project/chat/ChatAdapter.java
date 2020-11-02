@@ -1,5 +1,6 @@
 package com.example.digitalcontent_project.chat;
 
+import android.content.Context;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     public ChatAdapter(@NonNull ArrayList<ChatData> arrayList) {
         this.arrayList = arrayList;
     }
-
+   //https://youngest-programming.tistory.com/69 참고
     public ChatAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,parent,false);
         ViewHolder holder = new ViewHolder(view);
@@ -33,7 +34,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         ChatData chat_Data = arrayList.get(position);
         holder.chat_message.setText(arrayList.get(position).getUser_message());
 
-       // holder.itemView.setTag(position);
+        // holder.itemView.setTag(position);
     }
 
 

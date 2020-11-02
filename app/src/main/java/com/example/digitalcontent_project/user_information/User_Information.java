@@ -1,4 +1,4 @@
-package com.example.digitalcontent_project;
+package com.example.digitalcontent_project.user_information;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.digitalcontent_project.R;
 import com.example.digitalcontent_project.main.MainActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

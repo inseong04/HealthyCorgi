@@ -12,31 +12,97 @@
         android:orientation="vertical"
         android:weightSum="11.5"
         >
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:title="헬시코기"
+            />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chat_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="9"
+            android:layout_weight="8"
+            android:scrollbars="none"
             />
-        <LinearLayout
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.1"
-            android:background="#d6d6d6"
+            android:scrollbars="none"
+            >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             >
             <TextView
-                android:id="@+id/medicine_check"
+                android:id="@+id/medicine_check1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="테스트1"
                 android:textSize="20dp"
                 android:gravity="center"
-                android:background="#D2E2E1"
+                android:background="#cbcba9"
                 android:padding="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:id="@+id/medicine_check2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="테스트2"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="#cbcba9"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:id="@+id/medicine_check3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="테스트3"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="#cbcba9"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:id="@+id/medicine_check4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="테스트4"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="#cbcba9"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:id="@+id/medicine_check5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="테스트5"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="#cbcba9"
+                android:padding="10dp"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:id="@+id/medicine_check6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="테스트6"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:background="#cbcba9"
+                android:padding="10dp"
                 android:layout_marginLeft="10dp"
                 />
         </LinearLayout>
+    </HorizontalScrollView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -1,5 +1,6 @@
 package com.example.digitalcontent_project.chat;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.digitalcontent_project.R;
+import com.example.digitalcontent_project.main.MainActivity;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -23,9 +26,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class Fragment_Chat extends Fragment {
@@ -36,6 +42,7 @@ public class Fragment_Chat extends Fragment {
     EditText chat_input;
     RecyclerView recyclerView;
     Button send_btn;
+    int i=0;
     public Fragment_Chat() {
         // Required empty public constructor
     }
@@ -59,19 +66,36 @@ public class Fragment_Chat extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
+        final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance(); // firebaseAuth의 인스턴스를 가져온다.
+        final FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final String user_uid = user.getUid();
+
         arrayList = new ArrayList<>();
         adapter = new ChatAdapter(arrayList);
         recyclerView.setAdapter(adapter);
 
+
         send_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String message = chat_input.getText().toString();
-                Log.e(TAG,message);
-                ChatData chatData = new ChatData(message);
-                arrayList.add(chatData);
-                adapter.notifyDataSetChanged();
-                chat_input.setText("");
+                Map<String, Object> user_chating = new HashMap<>();
+                final String message = chat_input.getText().toString();
+                i++;
+                user_chating.put("message"+i,message);
+                firestoreDB.collection("users").document(user_uid)
+                        .update(user_chating)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Log.e(TAG,message);
+                                ChatData chatData = new ChatData(message);
+                                arrayList.add(chatData);
+                                adapter.notifyDataSetChanged();
+                                chat_input.setText("");
+                            }
+                        });
+
             }
         });
         return view;

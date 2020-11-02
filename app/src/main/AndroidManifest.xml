@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".User_Information" />
+        <activity android:name=".user_information.User_Information" />
         <activity android:name=".Setting_Time" />
         <activity android:name=".main.MainActivity" />
     </application>
