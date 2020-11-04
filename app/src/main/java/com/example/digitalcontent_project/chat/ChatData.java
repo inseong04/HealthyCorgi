@@ -3,19 +3,19 @@ package com.example.digitalcontent_project.chat;
 public class ChatData {
 
     private String user_message;
-    private String viewtype;
+    private int viewType;
 
-    public String getViewtype() {
-        return viewtype;
+    public int getViewType() {
+        return viewType;
     }
 
-    public void setViewtype(String viewtype) {
-        this.viewtype = viewtype;
+    public void setViewType(int viewType) {
+        this.viewType = viewType;
     }
 
-    public ChatData(String user_message, String viewtype) {
+    public ChatData(String user_message, int viewType) {
         this.user_message = user_message;
-        this.viewtype = viewtype;
+        this.viewType = viewType;
     }
 
     public String getUser_message() {

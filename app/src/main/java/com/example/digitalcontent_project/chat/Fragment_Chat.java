@@ -37,11 +37,12 @@ import java.util.Map;
 public class Fragment_Chat extends Fragment {
 
     private String TAG;
+    private ChatAdapter adapter;
     private ArrayList<ChatData> arrayList;
-    ChatAdapter adapter;
-    EditText chat_input;
-    RecyclerView recyclerView;
-    Button send_btn;
+    //    private ArrayList<ChatData> first_arrayList;
+    private EditText chat_input;
+    private RecyclerView recyclerView;
+    private Button send_btn;
     int i=0;
     public Fragment_Chat() {
         // Required empty public constructor
@@ -63,6 +64,10 @@ public class Fragment_Chat extends Fragment {
         chat_input = view.findViewById(R.id.chat_input);
         recyclerView = view.findViewById(R.id.chat_recyclerview);
         send_btn = view.findViewById(R.id.send_btn);
+
+
+
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
@@ -70,8 +75,10 @@ public class Fragment_Chat extends Fragment {
         final FirebaseFirestore firestoreDB = FirebaseFirestore.getInstance();
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final String user_uid = user.getUid();
+//        first_arrayList = new ArrayList<>();
 
         arrayList = new ArrayList<>();
+
         adapter = new ChatAdapter(arrayList);
         recyclerView.setAdapter(adapter);
 
@@ -79,6 +86,8 @@ public class Fragment_Chat extends Fragment {
         send_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 Map<String, Object> user_chating = new HashMap<>();
                 final String message = chat_input.getText().toString();
                 i++;
@@ -89,7 +98,7 @@ public class Fragment_Chat extends Fragment {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.e(TAG,message);
-                                ChatData chatData = new ChatData(message);
+                                ChatData chatData = new ChatData(message,Code.viewType.RIGHT_MESSAGE);
                                 arrayList.add(chatData);
                                 adapter.notifyDataSetChanged();
                                 chat_input.setText("");
@@ -100,5 +109,4 @@ public class Fragment_Chat extends Fragment {
         });
         return view;
     }
-
 }

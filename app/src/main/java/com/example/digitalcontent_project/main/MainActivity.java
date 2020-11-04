@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import com.example.digitalcontent_project.fragment.Fragment1;
 import com.example.digitalcontent_project.chat.Fragment_Chat;
 import com.example.digitalcontent_project.fragment.Fragment3;
-import com.example.digitalcontent_project.fragment.Fragment4;
 import com.example.digitalcontent_project.fragment.Fragment5;
 import com.example.digitalcontent_project.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

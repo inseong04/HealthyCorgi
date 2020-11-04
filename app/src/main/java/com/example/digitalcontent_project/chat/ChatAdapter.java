@@ -14,43 +14,78 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
+public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @NonNull
-    private ArrayList<ChatData> arrayList;
+    private ArrayList<ChatData> arrayList ;
 
     public ChatAdapter(@NonNull ArrayList<ChatData> arrayList) {
         this.arrayList = arrayList;
     }
-   //https://youngest-programming.tistory.com/69 참고
-    public ChatAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,parent,false);
-        ViewHolder holder = new ViewHolder(view);
 
-        return holder;
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view;
+        Context context = parent.getContext();
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        if(viewType == Code.viewType.RIGHT_MESSAGE){
+            view = inflater.inflate(R.layout.item_list,parent,false);
+            return new RightViewHolder(view);
+        }
+        else if (viewType == Code.viewType.LEFT_MESSAGE){
+            view = inflater.inflate(R.layout.left_item_list,parent,false);
+            return new LeftViewHolder(view);
+        }
+        else{
+            view = inflater.inflate(R.layout.item_list,parent,false);
+            return new RightViewHolder(view);
+        }
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChatAdapter.ViewHolder holder, int position) {
-        ChatData chat_Data = arrayList.get(position);
-        holder.chat_message.setText(arrayList.get(position).getUser_message());
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-        // holder.itemView.setTag(position);
+
+        if(holder instanceof LeftViewHolder){
+            ((LeftViewHolder)holder).chat_message.setText(arrayList.get(position).getUser_message());
+        }
+        else if(holder instanceof RightViewHolder){
+            ((RightViewHolder)holder).chat_message.setText(arrayList.get(position).getUser_message());
+        }else {
+            ((RightViewHolder)holder).chat_message.setText(arrayList.get(position).getUser_message());
+        }
+
     }
 
 
     @Override
     public int getItemCount() {
-        return (null != arrayList ? arrayList.size() : 0);
+        return arrayList.size();
+    }
+
+    public int getItemViewType(int position){
+        return arrayList.get(position).getViewType();
     }
 
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        protected TextView chat_message;
-        public ViewHolder(@NonNull View itemView) {
+    public class LeftViewHolder extends RecyclerView.ViewHolder{
+        TextView chat_message;
+
+        LeftViewHolder(View itemView){
             super(itemView);
-            this.chat_message = (TextView) itemView.findViewById(R.id.chat_message);
+
+            chat_message = itemView.findViewById(R.id.chat_message);
+        }
+    }
+    public class  RightViewHolder extends  RecyclerView.ViewHolder{
+        TextView chat_message;
+
+        RightViewHolder(View itemView){
+            super(itemView);
+
+            chat_message = itemView.findViewById(R.id.chat_message);
         }
     }
 }
