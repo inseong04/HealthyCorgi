@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.digitalcontent_project.R;
 import com.example.digitalcontent_project.main.MainActivity;
@@ -43,6 +44,9 @@ public class Fragment_Chat extends Fragment {
     private EditText chat_input;
     private RecyclerView recyclerView;
     private Button send_btn;
+    private TextView medicine_check;
+    private TextView today_medicine;
+    private TextView vaccination;
     int i=0;
     public Fragment_Chat() {
         // Required empty public constructor
@@ -64,7 +68,9 @@ public class Fragment_Chat extends Fragment {
         chat_input = view.findViewById(R.id.chat_input);
         recyclerView = view.findViewById(R.id.chat_recyclerview);
         send_btn = view.findViewById(R.id.send_btn);
-
+        medicine_check = view.findViewById(R.id.medicine_check);
+        today_medicine = view.findViewById(R.id.today_medicine);
+        vaccination = view.findViewById(R.id.vaccination);
 
 
 
@@ -82,6 +88,32 @@ public class Fragment_Chat extends Fragment {
         adapter = new ChatAdapter(arrayList);
         recyclerView.setAdapter(adapter);
 
+        medicine_check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChatData chatData = new ChatData("건강정보를 확인하시려면 이 메세지를 클릭해주세요!",Code.viewType.LEFT_MESSAGE);
+                arrayList.add(chatData);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        today_medicine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChatData chatData = new ChatData("오늘 복용할 약을 확인하시려면 이 메세지를 클릭해주세요!",Code.viewType.LEFT_MESSAGE);
+                arrayList.add(chatData);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        vaccination.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChatData chatData = new ChatData("예방접족 내역을 확인하시려면 이 메세지를 클릭해주세요!",Code.viewType.LEFT_MESSAGE);
+                arrayList.add(chatData);
+                adapter.notifyDataSetChanged();
+            }
+        });
 
         send_btn.setOnClickListener(new View.OnClickListener() {
             @Override
